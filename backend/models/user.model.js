@@ -22,6 +22,14 @@ const userSchema=new mongoose.Schema({
     },
     history:[
         {type:String}
+    ],
+    snippets:[
+        {
+            language:{type:String},
+            filename:{type:String},
+            code:{type:String},
+            createdAt:{type:Date,default:Date.now}
+        }
     ]
 
 },{timestamps:true})

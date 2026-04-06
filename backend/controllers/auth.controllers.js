@@ -28,7 +28,9 @@ try {
        secure:false
     })
 
-    return res.status(201).json(user)
+    const safeUser = await User.findById(user._id).select("-password")
+
+    return res.status(201).json(safeUser)
 
 } catch (error) {
        return res.status(500).json({message:`sign up error ${error}`})
@@ -58,7 +60,9 @@ try {
        secure:false
     })
 
-    return res.status(200).json(user)
+    const safeUser = await User.findById(user._id).select("-password")
+
+    return res.status(200).json(safeUser)
 
 } catch (error) {
        return res.status(500).json({message:`login error ${error}`})

@@ -3,7 +3,7 @@ import bg from "../assets/authBg.png"
 import { IoEye } from "react-icons/io5";
 import { IoEyeOff } from "react-icons/io5";
 import { useNavigate } from 'react-router-dom';
-import { userDataContext } from '../context/userContext';
+import { userDataContext } from '../context/UserContext';
 import axios from "axios"
 function SignIn() {
   const [showPassword,setShowPassword]=useState(false)
@@ -28,7 +28,7 @@ try {
   console.log(error)
   setUserData(null)
   setLoading(false)
-  setErr(error.response.data.message)
+  setErr(error.response?.data?.message || "Something went wrong. Please try again.")
 }
     }
   return (

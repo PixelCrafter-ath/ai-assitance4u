@@ -26,11 +26,20 @@ try {
 }
     }
 
+    const getSnippets = async () => {
+      try {
+        const result = await axios.get(`${serverUrl}/api/user/snippets`, { withCredentials: true });
+        return result.data;
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
     useEffect(()=>{
 handleCurrentUser()
     },[])
     const value={
-serverUrl,userData,setUserData,backendImage,setBackendImage,frontendImage,setFrontendImage,selectedImage,setSelectedImage,getGeminiResponse
+serverUrl,userData,setUserData,backendImage,setBackendImage,frontendImage,setFrontendImage,selectedImage,setSelectedImage,getGeminiResponse,getSnippets
     }
   return (
     <div>
